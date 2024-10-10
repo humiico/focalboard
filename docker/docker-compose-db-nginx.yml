@@ -23,7 +23,7 @@ services:
       - default
 
   proxy:
-    image: jwilder/nginx-proxy:latest
+    image: nginxproxy/nginx-proxy:latest
     container_name: focalboard-proxy
     restart: always
     ports:
@@ -37,6 +37,8 @@ services:
     image: postgres:latest
     container_name: focalboard-postgres
     restart: always
+    expose:
+      - 5432
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
